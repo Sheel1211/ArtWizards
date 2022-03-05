@@ -1,4 +1,22 @@
-@charset "UTF-8";
+#dropdown_div
+{
+  background-color: transparent;
+}
+
+#dropdownMenuButton1
+{
+  background-color: transparent;
+  border: none
+}
+
+#signin_button
+{
+  background-color: transparent;
+  border: none;
+}
+
+
+/* @charset "UTF-8"; */
 /*!
 * Start Bootstrap - Agency v7.0.10 (https://startbootstrap.com/theme/agency)
 * Copyright 2013-2021 Start Bootstrap
