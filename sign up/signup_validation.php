@@ -7,16 +7,16 @@ if(isset($_POST['submit']))
 
     if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['mothername']) && isset($_POST['fathername']) && isset($_POST['address']) && isset($_POST['gender']) && isset($_POST['dob']) && isset($_POST['pincode']) && isset($_POST['mobileno']) && isset($_POST['email']))
     {
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $mothersname = $_POST['mothername'];
-        $fathersname = $_POST['fathername'];
-        $address = $_POST['address'];
-        $gender = $_POST['gender'];
-        $dob = $_POST['dob'];
-        $pincode = $_POST['pincode'];
-        $mobileno = $_POST['mobileno'];
-        $email = $_POST['email'];
+        $firstname = htmlspecialchars($_POST['firstname']);
+        $lastname = htmlspecialchars($_POST['lastname']);
+        $mothersname = htmlspecialchars($_POST['mothername']);
+        $fathersname = htmlspecialchars($_POST['fathername']);
+        $address = htmlspecialchars($_POST['address']);
+        $gender = htmlspecialchars($_POST['gender']);
+        $dob = htmlspecialchars($_POST['dob']);
+        $pincode = htmlspecialchars($_POST['pincode']);
+        $mobileno = htmlspecialchars($_POST['mobileno']);
+        $email = htmlspecialchars($_POST['email']);
         echo "all the fields are filled up.......";
     }
 
