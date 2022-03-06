@@ -4,47 +4,57 @@
 // getting connect with the database
 require '../databse_connectivity/sign_up_table_connect.php';
 
+$error = "";
 
-$email=$_POST['email'];
-$password=$_POST['password'];
-if($email !=NULL && $password !=NULL)
+if(isset($_POST['submit']))
 {
+    if(isset($_POST['email']) && isset($_POST['password']) && $_POST['email'] != NULL && $_POST['password'] != NULL)
+    {
+        $email = htmlspecialchars($_POST['email']);
+        $email = trim($email);
+        $password =htmlspecialchars($_POST['password']);
 
-    
-    $sql="SELECT * FROM sign_up WHERE email='$email' AND password = '$password'";
-    $result=mysqli_query($conn,$sql);
-    $arr=mysqli_fetch_array($result);
-    
-    if(mysqli_num_rows($result)==1){
-        echo "Welcome Mr. $email";
-    
-    }
-    $email = htmlspecialchars($_POST['email']);
-    $email = trim($email);
 
-    $password = $_POST['password'];
-    if ($email != NULL && $password != NULL) {
+        $sql = "SELECT * FROM sign_up WHERE email='$email' AND password = '$password'";
+        $result = mysqli_query($conn, $sql);
+        $arr = mysqli_fetch_array($result);
 
-        if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) {
-            $error = "Enter valid E-mail id!";
-        } else {
-            $sql = "SELECT * FROM sign_up WHERE email='$email' AND password = '$password'";
-            $result = mysqli_query($conn, $sql);
-            $arr = mysqli_fetch_array($result);
-
-            if (mysqli_num_rows($result) == 1) {
-                // echo "Welcome Mr. $email";
-            } else {
-                $error="Invalid Credentials...";
+        if (mysqli_num_rows($result) == 1) 
+        {
+                echo "Welcome Mr. $email";
+                // echo "Hello";
+        } 
+        else 
+        {
+            $error="Invalid Credentials...";
                 // echo "Invalid Credentials...";
-            }
         }
-    } else if ($email == NULL) {
-        $error = "Please Enter Your Username";
-    } else if ($password == NULL) {
-        $error = "Please Enter Your Password";
+
+    }
+
+    else
+    {
+        // echo "Hello";
+
+        if($_POST['email'] == NULL && $_POST['password'] == NULL)
+        {
+            $error = "Please filled up all the fields!";
+        }
+
+        else if($_POST['email'] == NULL)
+        {
+            $error = "Please enter E-mail!";
+        }
+
+        else if($_POST['password'] == NULL)
+        {
+            $error = "Please enter password!";
+        }
+        
     }
 }
+
+
 ?>
 
 <html>
@@ -70,6 +80,8 @@ if($email !=NULL && $password !=NULL)
                                         <h4 class="mt-1 mb-5 pb-1">We are The ArtWizards</h4>
                                     </div>
 
+
+                                <!-- *****************form starts from here************** -->
                                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                         <!--Redirecting at same page       -->
                                         <p>Please login to your account</p>
@@ -93,15 +105,18 @@ if($email !=NULL && $password !=NULL)
 
                                         <div class="text-center pt-1 mb-5 pb-1">
                                             <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="submit">Log in</button>
+
+                                            </form>
+                                            <!-- ******************************form ends here********************* -->
+                                            
                                             <a class="text-muted" href="#!">Forgot password?</a>
                                         </div>
 
                                         <div class="d-flex align-items-center justify-content-center pb-4">
                                             <p class="mb-0 me-2">Don't have an account?</p>
-                                            <a href="signup.html"><button type="button" class="btn btn-outline-danger">Create new</a></button>
+                                            <a href="../sign up/signup_validation.php"><button type="button" class="btn btn-outline-danger">Create new</button></a>
                                         </div>
 
-                                    </form>
 
                                 </div>
                             </div>
