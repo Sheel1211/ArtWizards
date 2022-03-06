@@ -1,3 +1,7 @@
+#errorspan{
+  color: red;
+  font-weight: 600;
+}
 .gradient-custom-2 {
     /* fallback for old browsers */
     background: #fccb90;
