@@ -9,17 +9,26 @@ else{
 }
 $email=$_POST['email'];
 $password=$_POST['password'];
+if($email !=NULL && $password !=NULL)
+{
 
-$sql="SELECT * FROM sign_up WHERE email='$email' AND password = '$password'";
-$result=mysqli_query($conn,$sql);
-$arr=mysqli_fetch_array($result);
-
-if(mysqli_num_rows($result)==1){
-    echo "Welcome Mr. $email";
-
+    
+    $sql="SELECT * FROM sign_up WHERE email='$email' AND password = '$password'";
+    $result=mysqli_query($conn,$sql);
+    $arr=mysqli_fetch_array($result);
+    
+    if(mysqli_num_rows($result)==1){
+        echo "Welcome Mr. $email";
+    
+    }
+    else{
+        echo "Invalid Credentials...";
+    }
 }
 else{
-    echo "Invalid Credentials...";
+   echo  '<script type ="text/JavaScript">';  
+   echo 'alert("Fill Out All The Fields")';  
+   echo '</script>';
 }
 }
 ?>
