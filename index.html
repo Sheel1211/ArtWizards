@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         <title>Agency - Start Bootstrap Theme</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> -->
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -29,29 +29,28 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li> -->
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                        
                         <div class="dropdown">
 
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                              Category
+                              CATEGORY
                             </button>
-
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" href="#">Action</a></li>
-                              <li><a class="dropdown-item" href="#">Another action</a></li>
-                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="#">Mobile &raquo;</a></li>
+                              <li><a class="dropdown-item" href="#">Laptop/Computer &raquo;</a></li>
+                              <li><a class="dropdown-item" href="#">Paint &raquo;</a></li>
                             </ul>
-                          </div>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login/login.html"><button type="button" id="signin_button" class="btn btn-secondary">Signin</button></a></li>
-                        <li class="nav-item"><a href="./sign up/signup.html"><button type="button"class="btn btn-secondary" id="signup_button">Sign up</button></a></li>
+                        </div> 
+
+                        <!-- <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login/login.html"><button type="button" id="signin_button" class="btn btn-secondary">SIGN IN</button></a></li>
+                        <li class="nav-item"><a href="./sign up/signup.html"><button type="button"class="btn btn-secondary" id="signup_button">SIGN UP</button></a></li>
 
                         <li class="nav-item" id="search_li">
                             <div class="input-group rounded">
-                                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="search_textbox" />
+                                <input type="search" class="form-control rounded" placeholder="Search Heare" aria-label="Search" aria-describedby="search-addon" id="search_textbox" />
                                 <span class="input-group-text border-0" id="search-addon">
                                       <i class="fas fa-search"></i>
                                     </span>
@@ -74,8 +73,9 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Welcome To Our Studio!</div>
+                <div class="masthead-subheading">Welcome To Your Art World!</div>
                 <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+                <div class="masthead-subheading"><span class = "auto-input" style="color: chartreuse;"></span></div>
                 <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
             </div>
         </header>
@@ -84,7 +84,11 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Services</h2>
+
                     <h3 class="section-subheading text-muted">Here you get the Impressive services.</h3>
+
+                    <!-- <h3 class="section-subheading text-muted">Hello What can We Help You?</h3> -->
+
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">
@@ -92,17 +96,17 @@
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">E-Commerce</h4>
-                        <p class="text-muted">We help in situations when a current ecommerce solution hinders. We unfold an ecommerce process to move to a more flexible and scalable architecture and transfer reliable data.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                        </span>
                         <h4 class="my-3">Shipping</h4>
                         <p class="text-muted">An automated platform where you can depend on Delhivery for orders placed on every sales channel, with lower fulfillment costs. We conduct quality checks at every return order pickup. We also prevent discrepancies by measuring weight
                             at every touchpoint.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="fa-stack fa-4x">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <h4 class="my-3">E-Commerce</h4>
+                            <p class="text-muted">We help in situations when a current ecommerce solution hinders. We unfold an ecommerce process to move to a more flexible and scalable architecture and transfer reliable data.</p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
@@ -704,5 +708,15 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <script>
+            var typed = new Typed(".auto-input",{
+                strings : ["Imagine. Draw. Paint. Create!","Art is Where Work Meets Love.","Listen To Your Art."],
+                typeSpeed : 100,
+                backSpeed : 0,
+                loop : true
+            })
+        </script>
     </body>
 </html>
