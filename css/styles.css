@@ -10,6 +10,13 @@
 #signin_button {
     background-color: transparent;
     border: none;
+    width: max-content;
+    padding-top: unset;
+}
+#signup_button {
+    background-color: transparent;
+    border: none;
+    width: max-content;
 }
 
 .addtocart {
