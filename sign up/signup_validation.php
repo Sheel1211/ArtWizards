@@ -17,13 +17,63 @@ if(isset($_POST['submit']))
         $pincode = htmlspecialchars($_POST['pincode']);
         $mobileno = htmlspecialchars($_POST['mobileno']);
         $email = htmlspecialchars($_POST['email']);
+
+
+        // trimming the data
+        $firstname = trim($firstname);
+        $lastname = trim($lastname);
+        $mothersname = trim($mothersname);
+        $fathersname = trim($fathersname);
+        $address = trim($address);
+        $pincode = trim($pincode);
+        $mobileno = trim($mobileno);
+        $email = trim($email);
+
         echo "all the fields are filled up.......";
+
+
+        // validation for the email id
+        if(!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email))
+        {
+            $error = "Enter valid E-mail id!";
+        }
+
+
+        // validation for the fathersname
+        if (!preg_match("/^[a-zA-Z ]*$/",$fathersname)) 
+        {
+            $error = "Only letter and space allowd in the Father's Name!";
+        }
+
+
+
+        // validation for the lasttname
+        if (!preg_match("/^[a-zA-Z ]*$/",$mothersname)) 
+        {
+            $error = "Only letter and space allowd in the Mother's Name!";
+        }
+
+
+        // validation for the lasttname
+        if (!preg_match("/^[a-zA-Z ]*$/",$firstname)) 
+        {
+            $error = "Only letter and space allowd in the Last Name!";
+        }
+
+
+        // validation for the firstname
+        if (!preg_match("/^[a-zA-Z ]*$/",$firstname)) 
+        {
+            $error = "Only letter and space allowd in the First Name!";
+        }
+
     }
 
     else
     {
         $error = "All the fields are necessary to fill!";
         echo "Error occurs........";
+        
     }
 
 // echo $firstname;
@@ -211,7 +261,7 @@ if(isset($_POST['submit']))
 
                                     <!-- div for the mobile no -->
                                     <div class="form-outline mb-4" > 
-                                        <input type="text" id = "mobileno" name = "mobileno" class="form-control form-control-lg" />
+                                        <input type="tel" id = "mobileno" name = "mobileno" class="form-control form-control-lg" />
                                         <label class="form-label" for="form3Example99">Mobile-No<sup>*</sup></label>
                                     </div>
 
