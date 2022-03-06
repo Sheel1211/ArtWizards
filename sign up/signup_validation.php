@@ -1,12 +1,15 @@
 <?php
 
+// getting connect with the database
+require '../databse_connectivity/sign_up_table_connect.php';
+
 $error = "";
 $flag = 0;
 
 if(isset($_POST['submit']))
 {
 
-    if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['mothername']) && isset($_POST['fathername']) && isset($_POST['address']) && isset($_POST['gender']) && isset($_POST['dob']) && isset($_POST['pincode']) && isset($_POST['mobileno']) && isset($_POST['email']))
+    if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['mothername']) && isset($_POST['fathername']) && isset($_POST['address']) && isset($_POST['gender']) && isset($_POST['dob']) && isset($_POST['pincode']) && isset($_POST['mobileno']) && isset($_POST['email']) && isset($_POST['password']))
     {
         $firstname = htmlspecialchars($_POST['firstname']);
         $lastname = htmlspecialchars($_POST['lastname']);
@@ -18,6 +21,7 @@ if(isset($_POST['submit']))
         $pincode = htmlspecialchars($_POST['pincode']);
         $mobileno = htmlspecialchars($_POST['mobileno']);
         $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
 
 
         // trimming the data
@@ -43,7 +47,7 @@ if(isset($_POST['submit']))
 
 
         // validation for the mobileno
-        if(!preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $mobileno)) 
+        if(!preg_match("/^([9]{1})([234789]{1})([0-9]{8})$/", $mobileno)) 
         {
             $error = "Enter valid mobile number!";
             $flag = $flag + 1;
@@ -52,7 +56,7 @@ if(isset($_POST['submit']))
 
 
         // validation for the pincode
-        if(!preg_match("^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$", $pincode)) 
+        if(!preg_match("/^[1-9][0-9]{5}$/", $pincode)) 
         {
             $error = "Enter valid Pin Code!";
             $flag = $flag + 1;
@@ -93,7 +97,17 @@ if(isset($_POST['submit']))
         }
 
 
+
         // if there is no error in the data filling then the folloing parth of the data entry will occur
+        if($flag == 0)
+        {
+            $insert_query = "INSERT INTO `sign_up` ( `first_name` , `last_name` , `mothers_name` , `fathers_name` , `address` , `gender` , `dob` , `pincode` , `mobileno` , `email` , `password`) VALUES('$firstname' , '$lastname' , '$mothersname' , '$fathersname' , '$address' , '$gender' , '$dob' , '$pincode' , '$mobileno' , '$email' , '$password')";
+
+            if(mysqli_query($conn, $insert_query))
+            {
+                echo "DATA saved in the databse sucessfully";
+            }
+        }
 
     }
 
@@ -303,7 +317,7 @@ if(isset($_POST['submit']))
 
                                     <!-- div for the password -->
                                     <div class="form-outline mb-4" >
-                                        <input type="text" id = "password" name = "password" class="form-control form-control-lg" />
+                                        <input type="password" id = "password" name = "password" class="form-control form-control-lg" />
                                         <label class="form-label" for="form3Example97">Password<sup>*</sup></label>
                                     </div>
 
