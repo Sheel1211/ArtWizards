@@ -39,6 +39,23 @@ if(isset($_POST['submit']))
         }
 
 
+
+        // validation for the mobileno
+        if(!preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $mobileno)) 
+        {
+            $error = "Enter valid mobile number!";
+        }
+
+
+
+        // validation for the pincode
+        if(!preg_match("^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$", $pincode)) 
+        {
+            $error = "Enter valid Pin Code!";
+        }
+
+
+
         // validation for the fathersname
         if (!preg_match("/^[a-zA-Z ]*$/",$fathersname)) 
         {
@@ -47,7 +64,7 @@ if(isset($_POST['submit']))
 
 
 
-        // validation for the lasttname
+        // validation for the mothersname
         if (!preg_match("/^[a-zA-Z ]*$/",$mothersname)) 
         {
             $error = "Only letter and space allowd in the Mother's Name!";
