@@ -10,6 +10,17 @@ else{
 $email=$_POST['email'];
 $password=$_POST['password'];
 
+$sql="SELECT * FROM sign_up WHERE email='$email' AND password = '$password'";
+$result=mysqli_query($conn,$sql);
+$arr=mysqli_fetch_array($result);
+
+if(mysqli_num_rows($result)==1){
+    echo "Welcome Mr. $email";
+
+}
+else{
+    echo "Invalid Credentials...";
+}
 }
 ?>
 
@@ -38,12 +49,12 @@ $password=$_POST['password'];
                     <p>Please login to your account</p>
   
                     <div class="form-outline mb-4">
-                      <input type="email" id="form2Example11" class="form-control" placeholder="Phone number or email address"/>
+                      <input type="email" id="form2Example11" class="form-control" name="email" placeholder="Phone number or email address"/>
                       <label class="form-label" for="form2Example11">Username</label>
                     </div>
   
                     <div class="form-outline mb-4">
-                      <input type="password" id="form2Example22" class="form-control" placeholder="Enter your Password" />
+                      <input type="password" id="form2Example22" class="form-control" name="password" placeholder="Enter your Password" />
                       <label class="form-label" for="form2Example22">Password</label>
                     </div>
   
