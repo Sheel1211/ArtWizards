@@ -5,7 +5,7 @@ $error = "";
 if(isset($_POST['submit']))
 {
 
-    if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['mothername']) && isset($_POST['fathername']) && isset($_POST['address']) && isset($_POST['gender']) && isset($_POST['state']) && isset($_POST['city']) && isset($_POST['dob']) && isset($_POST['pincode']) && isset($_POST['mobileno']) && isset($_POST['email']))
+    if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['mothername']) && isset($_POST['fathername']) && isset($_POST['address']) && isset($_POST['gender']) && isset($_POST['dob']) && isset($_POST['pincode']) && isset($_POST['mobileno']) && isset($_POST['email']))
     {
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
@@ -13,8 +13,6 @@ if(isset($_POST['submit']))
         $fathersname = $_POST['fathername'];
         $address = $_POST['address'];
         $gender = $_POST['gender'];
-        $state = $_POST['state'];
-        $city = $_POST['city'];
         $dob = $_POST['dob'];
         $pincode = $_POST['pincode'];
         $mobileno = $_POST['mobileno'];
@@ -24,6 +22,7 @@ if(isset($_POST['submit']))
 
     else
     {
+        $error = "All the fields are necessary to fill!";
         echo "Error occurs........";
     }
 
@@ -41,6 +40,10 @@ if(isset($_POST['submit']))
 // echo $email;
 }
 ?>
+
+
+
+
 
 <html>
 <head>
@@ -69,7 +72,13 @@ if(isset($_POST['submit']))
  <!-- adding errorspan for the displaying the errors while filling up the form -->
 
                                     <span id="errorspan">
-                                        HELLO
+                                        <?php
+
+                                            if(isset($error) && $error != "")
+                                            {
+                                                echo $error;
+                                            }
+                                        ?>
                                     </span>
 
 
@@ -84,7 +93,7 @@ if(isset($_POST['submit']))
                                             <div class="form-outline">
                                                 <input type="text" id="firstname" name = "firstname"
                                                     class="form-control form-control-lg" />
-                                                <label class="form-label" for="form3Example1m">First name</label>
+                                                <label class="form-label" for="form3Example1m">First name<sup>*</sup></label>
                                             </div>
                                         </div>
 
@@ -94,7 +103,7 @@ if(isset($_POST['submit']))
                                             <div class="form-outline">
                                                 <input type="text" id="lastname" name = "lastname"
                                                     class="form-control form-control-lg" />
-                                                <label class="form-label" for="form3Example1n">Last name</label>
+                                                <label class="form-label" for="form3Example1n">Last name<sup>*</sup></label>
                                             </div>
                                         </div>
                                     </div>
@@ -106,7 +115,7 @@ if(isset($_POST['submit']))
                                             <div class="form-outline">
                                                 <input type="text" id="mothername" name = "mothername"
                                                     class="form-control form-control-lg" />
-                                                <label class="form-label" for="form3Example1m1">Mother's name</label>
+                                                <label class="form-label" for="form3Example1m1">Mother's name<sup>*</sup></label>
                                             </div>
                                         </div>
 
@@ -116,7 +125,7 @@ if(isset($_POST['submit']))
                                             <div class="form-outline">
                                                 <input type="text" id="fathername" name = "fathername"
                                                     class="form-control form-control-lg" />
-                                                <label class="form-label" for="form3Example1n1">Father's name</label>
+                                                <label class="form-label" for="form3Example1n1">Father's name<sup>*</sup></label>
                                             </div>
                                         </div>
                                     </div>
@@ -125,7 +134,7 @@ if(isset($_POST['submit']))
                                     <!-- div for the address -->
                                     <div class="form-outline mb-4">
                                         <input type="text" id="address" name = "address" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example8">Address</label>
+                                        <label class="form-label" for="form3Example8">Address<sup>*</sup></label>
                                     </div>
 
 
@@ -155,8 +164,8 @@ if(isset($_POST['submit']))
                                     </div>
 
 
-                                    <!-- div for the state -->
-                                    <div class="row">
+                                    <!-- div for the state-->
+                                    <!-- <div class="row">
                                         <div class="col-md-6 mb-4">
 
                                             <select class="select" id = "state" name = "state">
@@ -166,11 +175,11 @@ if(isset($_POST['submit']))
                                                 <option value="4">Option 3</option>
                                             </select>
 
-                                        </div>
+                                        </div> -->
 
 
                                         <!-- div for the city -->
-                                        <div class="col-md-6 mb-4">
+                                        <!-- <div class="col-md-6 mb-4">
 
                                             <select class="select" id = "city" name = "city">
                                                 <option value="1">City</option>
@@ -182,35 +191,42 @@ if(isset($_POST['submit']))
                                         </div>
 
 
-                                    </div>
+                                    </div> -->
     
 
 
                                     <!-- div for the DOB -->
                                     <div class="form-outline mb-4" >
-                                        <input type="text" id = "dob" name = "dob" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example9">DOB</label>
+                                        <input type="date" id = "dob" name = "dob" class="form-control form-control-lg" />
+                                        <label class="form-label" for="form3Example9">DOB<sup>*</sup></label>
                                     </div>
 
 
                                     <!-- div for the pin code -->
                                     <div class="form-outline mb-4" >
                                         <input type="text" id = "pincode" name = "pincode" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example90">Pincode</label>
+                                        <label class="form-label" for="form3Example90">Pincode<sup>*</sup></label>
                                     </div>
 
 
                                     <!-- div for the mobile no -->
                                     <div class="form-outline mb-4" > 
                                         <input type="text" id = "mobileno" name = "mobileno" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example99">Mobile-No</label>
+                                        <label class="form-label" for="form3Example99">Mobile-No<sup>*</sup></label>
                                     </div>
 
 
                                     <!-- div for the email id -->
                                     <div class="form-outline mb-4" >
                                         <input type="text" id = "email" name = "email" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example97">Email ID</label>
+                                        <label class="form-label" for="form3Example97">Email ID<sup>*</sup></label>
+                                    </div>
+
+
+                                    <!-- div for the password -->
+                                    <div class="form-outline mb-4" >
+                                        <input type="text" id = "password" name = "password" class="form-control form-control-lg" />
+                                        <label class="form-label" for="form3Example97">Password<sup>*</sup></label>
                                     </div>
 
 
