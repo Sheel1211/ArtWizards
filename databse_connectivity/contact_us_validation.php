@@ -29,7 +29,7 @@ function test_input($data)
 
             if(!preg_match("/^([a-zA-Z0-9\.]+@+[a-zA-Z]+(\.)+[a-zA-Z]{2,3})$/",$email))
             {
-                echo "<h3 style='color:red;'>Invalid Fromate for email!</h3>";
+                echo "<h3 style='color:red;'>Invalid Formate for email!</h3>";
                 $flag = $flag+1;
             }
 
