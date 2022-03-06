@@ -1,12 +1,10 @@
 <?php
-if(isset($_POST['submit'])){
-$conn = mysqli_connect('localhost','root','','the_artwizards');
-if($conn){
-    echo"Connection Successful";
-}
-else{
-    echo "Connection Failed...";
-}
+
+
+// getting connect with the database
+require '../databse_connectivity/sign_up_table_connect.php';
+
+
 $email=$_POST['email'];
 $password=$_POST['password'];
 if($email !=NULL && $password !=NULL)
@@ -30,7 +28,7 @@ else{
    echo 'alert("Fill Out All The Fields")';  
    echo '</script>';
 }
-}
+
 ?>
 
 <html>
