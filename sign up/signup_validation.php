@@ -19,7 +19,7 @@ if(isset($_POST['submit']))
         $pincode = $_POST['pincode'];
         $mobileno = $_POST['mobileno'];
         $email = $_POST['email'];
-        echo "all the fieled are fille up.......";
+        echo "all the fields are filled up.......";
     }
 
     else
