@@ -1,7 +1,45 @@
 <?php
 
-// $name = "$_POST['']"
+$error = "";
 
+if(isset($_POST['submit']))
+{
+
+    if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['mothername']) && isset($_POST['fathername']) && isset($_POST['address']) && isset($_POST['gender']) && isset($_POST['state']) && isset($_POST['city']) && isset($_POST['dob']) && isset($_POST['pincode']) && isset($_POST['mobileno']) && isset($_POST['email']))
+    {
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $mothersname = $_POST['mothername'];
+        $fathersname = $_POST['fathername'];
+        $address = $_POST['address'];
+        $gender = $_POST['gender'];
+        $state = $_POST['state'];
+        $city = $_POST['city'];
+        $dob = $_POST['dob'];
+        $pincode = $_POST['pincode'];
+        $mobileno = $_POST['mobileno'];
+        $email = $_POST['email'];
+        echo "all the fieled are fille up.......";
+    }
+
+    else
+    {
+        echo "Error occurs........";
+    }
+
+// echo $firstname;
+// echo $lastname;
+// echo $mothersname;
+// echo $fathersname;
+// echo $address;
+// echo $gender;
+// echo $state;
+// echo $city;
+// echo $dob;
+// echo $pincode;
+// echo $mobileno;
+// echo $email;
+}
 ?>
 
 <html>
@@ -121,7 +159,7 @@
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
 
-                                            <select class="select">
+                                            <select class="select" id = "state" name = "state">
                                                 <option value="1">State</option>
                                                 <option value="2">Option 1</option>
                                                 <option value="3">Option 2</option>
@@ -134,7 +172,7 @@
                                         <!-- div for the city -->
                                         <div class="col-md-6 mb-4">
 
-                                            <select class="select">
+                                            <select class="select" id = "city" name = "city">
                                                 <option value="1">City</option>
                                                 <option value="2">Option 1</option>
                                                 <option value="3">Option 2</option>
