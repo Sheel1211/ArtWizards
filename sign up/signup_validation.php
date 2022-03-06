@@ -1,6 +1,7 @@
 <?php
 
 $error = "";
+$flag = 0;
 
 if(isset($_POST['submit']))
 {
@@ -36,6 +37,7 @@ if(isset($_POST['submit']))
         if(!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email))
         {
             $error = "Enter valid E-mail id!";
+            $flag = $flag + 1;
         }
 
 
@@ -44,6 +46,7 @@ if(isset($_POST['submit']))
         if(!preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $mobileno)) 
         {
             $error = "Enter valid mobile number!";
+            $flag = $flag + 1;
         }
 
 
@@ -52,6 +55,7 @@ if(isset($_POST['submit']))
         if(!preg_match("^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$", $pincode)) 
         {
             $error = "Enter valid Pin Code!";
+            $flag = $flag + 1;
         }
 
 
@@ -60,6 +64,7 @@ if(isset($_POST['submit']))
         if (!preg_match("/^[a-zA-Z ]*$/",$fathersname)) 
         {
             $error = "Only letter and space allowd in the Father's Name!";
+            $flag = $flag + 1;
         }
 
 
@@ -68,6 +73,7 @@ if(isset($_POST['submit']))
         if (!preg_match("/^[a-zA-Z ]*$/",$mothersname)) 
         {
             $error = "Only letter and space allowd in the Mother's Name!";
+            $flag = $flag + 1;
         }
 
 
@@ -75,6 +81,7 @@ if(isset($_POST['submit']))
         if (!preg_match("/^[a-zA-Z ]*$/",$firstname)) 
         {
             $error = "Only letter and space allowd in the Last Name!";
+            $flag = $flag + 1;
         }
 
 
@@ -82,7 +89,11 @@ if(isset($_POST['submit']))
         if (!preg_match("/^[a-zA-Z ]*$/",$firstname)) 
         {
             $error = "Only letter and space allowd in the First Name!";
+            $flag = $flag + 1;
         }
+
+
+        // if there is no error in the data filling then the folloing parth of the data entry will occur
 
     }
 

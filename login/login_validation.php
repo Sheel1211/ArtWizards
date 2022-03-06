@@ -1,10 +1,23 @@
 <?php
-if (isset($_POST['submit'])) {
-    $conn = mysqli_connect('localhost', 'root', '', 'the_artwizards');
-    if ($conn) {
-        //echo "Connection Successful";
-    } else {
-        //echo "Connection Failed...";
+
+
+// getting connect with the database
+require '../databse_connectivity/sign_up_table_connect.php';
+
+
+$email=$_POST['email'];
+$password=$_POST['password'];
+if($email !=NULL && $password !=NULL)
+{
+
+    
+    $sql="SELECT * FROM sign_up WHERE email='$email' AND password = '$password'";
+    $result=mysqli_query($conn,$sql);
+    $arr=mysqli_fetch_array($result);
+    
+    if(mysqli_num_rows($result)==1){
+        echo "Welcome Mr. $email";
+    
     }
     $email = htmlspecialchars($_POST['email']);
     $email = trim($email);
