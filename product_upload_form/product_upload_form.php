@@ -1,5 +1,8 @@
 <?php
 
+// gettinf connect with the database
+require '../databse_connectivity/sign_up_table_connect.php';
+
 $error = "";
 $flag = 0;
 $flag_extention = 0;
@@ -72,12 +75,28 @@ if (isset($_POST['submit']))
         //if there is no any error then the following code will execte and the image will store at the destination and furher instruction will execute
         if($flag == 0)
         {
-            $target = 'main_images/';
-            $filename = $_FILES['main_image']['name'];
-            $second_argue = $target . $filename . "." . $ext;
-            if(move_uploaded_file($_FILES["main_image"]["tmp_name"], $second_rague)) 
+            $target = 'main_images/'; //this is the target directory in which uploaded image will store
+            $filename = $_FILES['main_image']['name']; //this is the original file name which user uploades
+
+            date_default_timezone_set('Asia/Kolkata'); //setting the time zone to the ISZ
+            $current_time = date('h:i:s A');
+            $current_date = date('d F, Y');
+            // echo "Time is : " . $current_date;
+
+            $upload_file_name = $filename . time() . "." . $ext; //this is the modified file name which will be stored in the database for the further use
+            $second_argue = $target . $upload_file_name; 
+            echo $filename . time() . "." . $ext;
+            if(move_uploaded_file($_FILES["main_image"]["tmp_name"], $second_argue)) 
             {
-                echo "Image is sucessfully moved to the destination folder."; 
+                echo "Image is sucessfully moved to the destination folder.";
+                
+                $sql = "INSERT INTO `product_information`( `file_name`, `product_name`, `discription`, `cancelled_price`, `original_price`, `upload_date`, `upload_time`) VALUES ('$upload_file_name' , '$product_name' , '$description' , '$cancelled_price' , '$original_price','$current_date' , '$current_time')";
+
+                if(mysqli_query($conn , $sql))
+                {
+                    echo "Data Enterd in the database successfully.";
+                }
+
             }
         }
     } 
@@ -196,6 +215,9 @@ if (isset($_POST['submit']))
                                         </div>
         
     </form>
+
+
+    <!-- <img src="./main_images/download.jpg1646686246.jpg" alt="images from the database"> -->
 
 </body>
 
