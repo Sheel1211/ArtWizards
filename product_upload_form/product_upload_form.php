@@ -1,10 +1,14 @@
 <?php
 
 $error = "";
+$flag = 0;
 
-if (isset($_POST['submit'])) {
 
-    if ($_FILES['main_image'] != NULL && $_POST['product_name'] != NULL && $_POST['description'] != NULL && $_POST['cancelled_price'] != NULL && $_POST['original_price'] != NULL) {
+if (isset($_POST['submit'])) 
+{
+
+    if( $_POST['product_name'] != NULL && $_POST['description'] != NULL && $_POST['cancelled_price'] != NULL && $_POST['original_price'] != NULL && $_FILES['main_image']) 
+    {
         $product_name = htmlspecialchars($_POST['product_name']);
         $description = htmlspecialchars($_POST['description']);
         $cancelled_price = htmlspecialchars($_POST['cancelled_price']);
@@ -18,20 +22,52 @@ if (isset($_POST['submit'])) {
         // validation to check whether uploaded file is IMAGE file or not
         $filename = $_FILES['main_image']['name'];
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        if ($ext !== 'gif' || $ext !== 'png' || $ext !== 'jpg') {
+
+        if ($ext != 'gif' || $ext != 'png' || $ext != 'jpg' || $ext != 'jpeg') 
+        {
             $error = "Only image files are allowed!";
+            $flag = $flag + 1;
         }
-    } else {
+
+
+        // validation for the only letters and digits allowed in the product name
+        if (!preg_match("/^[a-zA-Z ]*$/",$product_name)) 
+        {
+            $error = "Only letter and space allowd in the First Name!";
+            $flag = $flag + 1;
+        }
+
+
+        // validation for the only letters and digits allowed in the discription
+        else if (!preg_match("/^[a-zA-Z ]*$/",$description)) 
+        {
+            $error = "Only letter and space allowd in the First Name!";
+            $flag = $flag + 1;
+        }
+
+
+        //if there is no any error then the following code will execte and the image will store at the destination and furher instruction will execute
+        if($flag == 0)
+        {
+            $target = "./main_images";
+            if(move_uploaded_file($_FILES["main_image"]["tmp_name"], $target)) 
+            {
+                echo "Image is sucessfully moved to the destination folder."; 
+            }
+        }
+    } 
+    else 
+    {
         $error = "All fields are necessary to fill!";
     }
 
 
 
-    $filename = $_FILES['main_image']['name'];
-    $filesize = $_FILES['main_image']['size'];
+    // $filename = $_FILES['main_image']['name'];
+    // $filesize = $_FILES['main_image']['size'];
 
-    echo "$filename <br>";
-    echo $filesize;
+    // echo "$filename <br>";
+    // echo $filesize;
 }
 
 
@@ -153,13 +189,15 @@ if (isset($_POST['submit'])) {
 
     <!-- *************************form starts from here********************** -->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
-    <div class="row">
+
+                                        <div class="row">
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
-                                                <input type="file" id="formFile"
+                                                <input type="file" id="main_image" name = "main_image"
                                                     class="form-label form-control form-control-lg" />
                                                 <label class="form-label" for="main_image">Upload image for the main display :<sup>*</sup></label>
                                             </div>
+                                        </div>
                                         </div>
 
 
@@ -171,6 +209,7 @@ if (isset($_POST['submit'])) {
                                                 <label class="form-label" for="product_name">Product Name : <sup>*</sup></label>
                                             </div>
                                         </div>
+                                        </div>
 
 
                                         <div class="row">
@@ -181,40 +220,35 @@ if (isset($_POST['submit'])) {
                                                 <label class="form-label" for="description">Description : <sup>*</sup></label>
                                             </div>
                                         </div>
+                                        </div>
 
 
                                         <div class="row">
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
-                                                <input type="text" id="cancelled_price" name = "cancelled_price"
+                                                <input type="number" id="cancelled_price" name = "cancelled_price"
                                                     class="form-control form-control-lg" />
                                                 <label class="form-label" for="cancelled_price">Cancelled Price : <sup>*</sup></label>
                                             </div>
                                         </div>
+                                        </div>
 
 
                                         <div class="row">
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
-                                                <input type="text" id="original_price" name = "original_price"
+                                                <input type="number" id="original_price" name = "original_price"
                                                     class="form-control form-control-lg" />
                                                 <label class="form-label" for="original_price">Original Price : <sup>*</sup></label>
                                             </div>
                                         </div>
+                                        </div>
                                         
 
                                         <div class="d-flex justify-content-end pt-3">
-                                        <button type="reset" class="btn btn-light btn-lg" id = "reset" name = "reset">Reset all</button>
-                                        <button type="submit" class="btn btn-warning btn-lg ms-2" id = "submit" name = "submit">Submit form</button>
-                                    </div>
-
-
-
-                                        
-       
-
-           
-
+                                            <button type="reset" class="btn btn-light btn-lg" id = "reset" name = "reset">Reset all</button>
+                                            <button type="submit" class="btn btn-warning btn-lg ms-2" id = "submit" name = "submit">Submit form</button>
+                                        </div>
         
     </form>
 
