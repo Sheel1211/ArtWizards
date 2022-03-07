@@ -123,24 +123,92 @@ require '../databse_connectivity/sign_up_table_connect.php';
 
             <?php
 
-                // echo "<div class=\"col-md-3 col-sm-6 my-3 my-md-0 \">";
-                //     echo "<form action=\"index.php \" method=\"post \">";
-                //         echo "<div class=\"cardshadow \">";
-                //             echo "";
-                //             echo "";
-                //         echo "</div>";
-                //     echo "</form>";
-                // echo "</div>";
+                $sql = "SELECT * FROM `product_information`";
+                $result = mysqli_query($conn , $sql);
+
+                echo "
+                <table>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+
+                        <th>
+                            File_name
+                        </th>
+
+                        <th>
+                            Product_name
+                        </th>
+
+                        <th>
+                            Discription
+                        </th>
+
+                        <th>
+                            Cancelled Price
+                        </th>
+
+                        <th>
+                            OriginalPrice
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Time
+                        </th>
+                    </tr>
+                ";
+
+                while ($array = mysqli_fetch_array($result))
+                {
+                //     echo "<tr>
+                //     <td>
+                //         $array[0];
+                //     </td>
+
+                //     <td>
+                //         $array[1];
+                //     </td>
+
+                //     <td>
+                //         $array[2];
+                //     </td>
+
+                //     <td>
+                //     $array[3];
+                //     </td>
+
+                //     <td>
+                //     $array[4];
+                //     </td>
+
+                //     <td>
+                //         $array[5];
+                //     </td>
+
+                //     <td>
+                //         $array[6];
+                //     </td>
+
+                //     <td>
+                //         $array[7];
+                //     </td>
+                // </tr>
+                //     ";
 
                 echo " <div class = \"col-md-3 col-sm-6 my-3 my-md-0 \">
                 <form action = \"index.php \" method = \"post \">
                     <div class = \"cardshadow \">
                     </div>
                     <div>
-                        <img src = \"assets/img/portfolio/papers.jpg\" alt=\" \" class = \"img-fluid1 card-img-top \">
+                        <img src = \"../product_upload_form/main_images/$array[1]\" alt=\" \" class = \"img-fluid1 card-img-top \">
                     </div>
                     <div class = \"card-body \">
-                        <h5 class = \"card-title \">Papers</h5>
+                        <h5 class = \"card-title \"> $array[2] </h5>
                         <h6>
                             <i class = \"fas fa-star \"></i>
                             <i class = \"fas fa-star \"></i>
@@ -148,16 +216,54 @@ require '../databse_connectivity/sign_up_table_connect.php';
                             <i class = \"fas fa-star \"></i>
                             <i class = \"far fa-star \"></i>
                         </h6>
-                        <p class = \"card-text \">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum </p>
+                        <p class = \"card-text \"> $array[3] </p>
                         <h5>
-                            <small><s class = \"text-secondary \">$50</s></small>
-                            <span class = \"price \">$40</span>
+                            <small><s class = \"text-secondary \">";
+
+                             echo "$array[4]";
+
+                            echo "</s></small>
+                            <span class = \"price \">";
+
+                            echo "$array[5]"; 
+                            
+                            echo "</span>
                             <button type = \"submit \" class = \"btn btn-warning my-3 \" name = \"add \">Add to Cart <i class= \"fas fa-shopping-cart \"></i></button>
                         </h5>
                     </div>
                 </form>
             </div>
                 ";
+                }
+
+                // echo "</table>";
+
+            //     echo " <div class = \"col-md-3 col-sm-6 my-3 my-md-0 \">
+            //     <form action = \"index.php \" method = \"post \">
+            //         <div class = \"cardshadow \">
+            //         </div>
+            //         <div>
+            //             <img src = \"assets/img/portfolio/papers.jpg\" alt=\" \" class = \"img-fluid1 card-img-top \">
+            //         </div>
+            //         <div class = \"card-body \">
+            //             <h5 class = \"card-title \">Papers</h5>
+            //             <h6>
+            //                 <i class = \"fas fa-star \"></i>
+            //                 <i class = \"fas fa-star \"></i>
+            //                 <i class = \"fas fa-star \"></i>
+            //                 <i class = \"fas fa-star \"></i>
+            //                 <i class = \"far fa-star \"></i>
+            //             </h6>
+            //             <p class = \"card-text \">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum </p>
+            //             <h5>
+            //                 <small><s class = \"text-secondary \">$50</s></small>
+            //                 <span class = \"price \">$40</span>
+            //                 <button type = \"submit \" class = \"btn btn-warning my-3 \" name = \"add \">Add to Cart <i class= \"fas fa-shopping-cart \"></i></button>
+            //             </h5>
+            //         </div>
+            //     </form>
+            // </div>
+            //     ";
             ?>
 
              <!--   <div class="col-md-3 col-sm-6 my-3 my-md-0 ">
