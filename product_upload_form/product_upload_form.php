@@ -2,6 +2,7 @@
 
 $error = "";
 $flag = 0;
+$flag_extention = 0;
 
 
 if (isset($_POST['submit'])) 
@@ -23,7 +24,28 @@ if (isset($_POST['submit']))
         $filename = $_FILES['main_image']['name'];
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
-        if ($ext != 'gif' || $ext != 'png' || $ext != 'jpg' || $ext != 'jpeg') 
+        switch($ext)
+        {
+            case 'jpg' :
+                {
+                    $flag_extention = $flag_extention + 1;
+                    break;
+                }
+
+            case 'jpeg' :
+                {
+                    $flag_extention = $flag_extention + 1;
+                    break;
+                }
+            
+            case 'svg' :
+                {
+                    $flag_extention = $flag_extention + 1;
+                    break;
+                }
+        }
+
+        if($flag_extention == 0)
         {
             $error = "Only image files are allowed!";
             $flag = $flag + 1;
@@ -31,7 +53,7 @@ if (isset($_POST['submit']))
 
 
         // validation for the only letters and digits allowed in the product name
-        if (!preg_match("/^[a-zA-Z ]*$/",$product_name)) 
+        else if(!preg_match("/^[a-zA-Z ]*$/",$product_name)) 
         {
             $error = "Only letter and space allowd in the First Name!";
             $flag = $flag + 1;
@@ -39,18 +61,21 @@ if (isset($_POST['submit']))
 
 
         // validation for the only letters and digits allowed in the discription
-        else if (!preg_match("/^[a-zA-Z ]*$/",$description)) 
+        else if(!preg_match("/^[a-zA-Z ]*$/",$description)) 
         {
             $error = "Only letter and space allowd in the First Name!";
             $flag = $flag + 1;
         }
+        // echo "$flag";
 
 
         //if there is no any error then the following code will execte and the image will store at the destination and furher instruction will execute
         if($flag == 0)
         {
-            $target = "./main_images";
-            if(move_uploaded_file($_FILES["main_image"]["tmp_name"], $target)) 
+            $target = 'main_images/';
+            $filename = $_FILES['main_image']['name'];
+            $second_argue = $target . $filename . "." . $ext;
+            if(move_uploaded_file($_FILES["main_image"]["tmp_name"], $second_rague)) 
             {
                 echo "Image is sucessfully moved to the destination folder."; 
             }
