@@ -101,12 +101,26 @@ if(isset($_POST['submit']))
         // if there is no error in the data filling then the folloing parth of the data entry will occur
         if($flag == 0)
         {
-            $insert_query = "INSERT INTO `sign_up` ( `first_name` , `last_name` , `mothers_name` , `fathers_name` , `address` , `gender` , `dob` , `pincode` , `mobileno` , `email` , `password`) VALUES('$firstname' , '$lastname' , '$mothersname' , '$fathersname' , '$address' , '$gender' , '$dob' , '$pincode' , '$mobileno' , '$email' , '$password')";
+            $check_for_already_exist_email_query = "SELECT * FROM `sign_up` WHERE email = '$email'";
+            $result = mysqli_query($conn , $check_for_already_exist_email_query);
+            $arr = mysqli_fetch_array($result);
 
-            if(mysqli_query($conn, $insert_query))
+            if(mysqli_num_rows($result) == 0)
             {
-                echo "DATA saved in the databse sucessfully";
+                $insert_query = "INSERT INTO `sign_up` ( `first_name` , `last_name` , `mothers_name` , `fathers_name` , `address` , `gender` , `dob` , `pincode` , `mobileno` , `email` , `password`) VALUES('$firstname' , '$lastname' , '$mothersname' , '$fathersname' , '$address' , '$gender' , '$dob' , '$pincode' , '$mobileno' , '$email' , '$password')";
+
+                if(mysqli_query($conn, $insert_query))
+                {
+                    echo "DATA saved in the databse sucessfully";
+                }
+
             }
+
+            else
+            {
+                $error = "E-mail is already registerd!";
+            }
+
         }
 
     }
@@ -118,18 +132,6 @@ if(isset($_POST['submit']))
         
     }
 
-// echo $firstname;
-// echo $lastname;
-// echo $mothersname;
-// echo $fathersname;
-// echo $address;
-// echo $gender;
-// echo $state;
-// echo $city;
-// echo $dob;
-// echo $pincode;
-// echo $mobileno;
-// echo $email;
 }
 ?>
 
