@@ -13,11 +13,90 @@
     width: max-content;
     padding-top: unset;
 }
+
 #signup_button {
     background-color: transparent;
     border: none;
     width: max-content;
 }
+
+.img-fluid {
+    margin-left: 4px;
+    margin-right: 8px;
+    float: left;
+    height: 70px;
+    width: 100px;
+}
+
+.container2 {
+    width: 100%;
+    height: 200;
+    padding: 1%;
+}
+
+
+/* .container2 .card-body {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0px 0px 0px 0px;
+} */
+
+
+/* .card-text {
+    font-size: 13px;
+    font-weight: 300;
+    margin: 0px 0px 0px 0px;
+} */
+
+
+/* .cardshadow {
+    float: left;
+    width: 100px;
+    height: 100px;
+  } */
+
+.cardshadow {
+    height: 50%;
+    width: 50%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cardshadow img {
+    display: block;
+    height: 30%;
+    width: 30%;
+    clear: both;
+    clear: left;
+    width: 100%;
+    object-fit: cover;
+    border: 1px #000;
+    padding: 0px;
+    margin: 0px;
+}
+
+.img.img-fluid.card-img-top {
+    height: 150px;
+    width: 20%;
+}
+
+.card-img,
+.card-img-top {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+
+
+/* .cardshadow img {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+} */
 
 .addtocart {
     width: 150px;
@@ -460,7 +539,6 @@ select {
     cursor: pointer;
 }
 
-
 select {
     word-wrap: normal;
 }
@@ -491,33 +569,37 @@ button:not(:disabled),
     padding: 0;
     border-style: none;
 }
-.nav-item > a :hover{
-    color : orange;
+
+.nav-item>a :hover {
+    color: orange;
 }
 
 textarea {
     resize: vertical;
 }
 
+
 /* drpdown-css */
+
 .dropdown-menu li {
     position: relative;
-  }
-  .dropdown-menu .dropdown-submenu {
+}
+
+.dropdown-menu .dropdown-submenu {
     display: none;
     position: absolute;
     left: 100%;
     top: -7px;
-  }
-  .dropdown-menu .dropdown-submenu-left {
+}
+
+.dropdown-menu .dropdown-submenu-left {
     right: 100%;
     left: auto;
-  }
-  .dropdown-menu > li:hover > .dropdown-submenu {
+}
+
+.dropdown-menu>li:hover>.dropdown-submenu {
     display: block;
-  }
-
-
+}
 
 fieldset {
     min-width: 0;
@@ -11465,8 +11547,9 @@ header.masthead .masthead-heading {
 .portfolio-modal .close-modal:hover {
     opacity: 0.3;
 }
-.masthead-subheading{
-    color:darkgoldenrod;
+
+.masthead-subheading {
+    color: darkgoldenrod;
 }
 
 .timeline {
@@ -11753,4 +11836,9 @@ section#contact form#contactForm :-ms-input-placeholder {
     text-align: center;
     font-size: 0.9rem;
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: 250px;
 }
