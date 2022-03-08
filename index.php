@@ -22,10 +22,15 @@
     <div class="container">
         <div class="row text-center py-5">
         <?php
-            component();
-            component();
-            component();
-            component();
+            component('Paper', 40, "assets/img/portfolio/papers.jpg", 'Amazing');
+            component('Painting', 40, "assets/img/portfolio/paint_color.jpeg" , 'Amazing');
+            component('Make your mark', 40, "assets/img/portfolio/make_fun.jpeg.jpeg ", 'Amazing');
+            component('Textile', 40, "assets/img/portfolio/textiles.jpeg.jpeg", 'Amazing');
+            component('Stringing & Beading', 40, "assets/img/portfolio/Stringing&Beading.jpg.jpeg", 'Amazing');
+            component('Printing', 40, "assets/img/portfolio/printing.jpeg", 'Amazing');
+            component('Tools', 40, "assets/img/portfolio/tools.jpg.jpeg", 'Amazing');
+            component('Fun to Have', 40, "assets/img/portfolio/fun_to_have1.jpeg", 'Amazing');
+            
         ?>
         
     
