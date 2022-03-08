@@ -16,14 +16,18 @@
     width: max-content;
     padding-top: unset;
 }
-
+.team-member > h4:hover{
+    color: #cca000;
+}
+.large text-muted{
+    font-weight: 15px;
+}
 #signup_button 
 {
-    background-color: red;
+    background-color: rgb(151, 21, 21);
     border: 2px solid gray;
     width: max-content;
 }
-
 .img-fluid1 {
     margin-left: 4px;
     margin-right: 8px;
