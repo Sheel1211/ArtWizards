@@ -19,6 +19,7 @@
 .team-member > h4:hover{
     color: #cca000;
 }
+/* image hover efect */
 .shrink img {
     transition: 1s ease;
     }
@@ -29,6 +30,40 @@
     transform: scale(0.8);
     transition: 1s ease;
     }
+
+
+    /* // hover image over text hover effect try */
+    
+/* .shrink {
+    position: relative;
+    width: 50%;
+    max-width: 300px;
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay > p {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1; 
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: rgb(96, 29, 219);
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  .shrink:hover .overlay {
+    opacity: 1;
+  } */
+
 #signup_button 
 {
     background-color: rgb(151, 21, 21);
