@@ -7,6 +7,9 @@
     border: none
 }
 
+#dropdownMenuButton1.btn:hover{
+    color:#cca000;
+}
 #signin_button {
     background-color: transparent;
     border: none;
