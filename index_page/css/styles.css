@@ -19,9 +19,16 @@
 .team-member > h4:hover{
     color: #cca000;
 }
-.large text-muted{
-    font-weight: 15px;
-}
+.shrink img {
+    transition: 1s ease;
+    }
+    
+    .shrink img:hover{
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+    transition: 1s ease;
+    }
 #signup_button 
 {
     background-color: rgb(151, 21, 21);
