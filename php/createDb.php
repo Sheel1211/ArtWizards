@@ -9,7 +9,7 @@ class CreateDb{
     public $con;
 
     //constructor
-    public function _construct(
+    public function_construct(
         $dbname = "the_artwizards",
         $tablename = "productdb",
         $servername = "localhost",
@@ -33,7 +33,7 @@ class CreateDb{
         $sql = "create database if not exists $dbname";
 
         //execute querry
-        if(mysqli_query($this->con,$sql)){
+        if(mysqli_querry($this->con,$sql)){
             $this->con = mysqli_connect($servername,$username,$pass);
 
             // sql create new table
@@ -43,7 +43,7 @@ class CreateDb{
             product_img varchar(100)
         );";
 
-        if(!mysqli_query($this->con,$sql)){
+        if(!mysqli_querry($this->con,$sql)){
             echo "Error creating table ".mysqli_error($this->con);
         }
         }else{
